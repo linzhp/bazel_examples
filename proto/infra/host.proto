@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package example.infra;
+
+option go_package = "infrapb";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "infra/base.proto";
