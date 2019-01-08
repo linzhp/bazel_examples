@@ -5,7 +5,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/linzhp/bazel_examples/gazelle/sqliteTest",
     visibility = ["//visibility:private"],
-    deps = ["//github.com/mattn/go-sqlite3:go_default_library"],
+    deps = ["@com_github_mattn_go_sqlite3//:go_default_library"],
 )
 
 go_binary(
