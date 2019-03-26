@@ -23,11 +23,12 @@ proto_library(
         "base.proto",
         "host.proto",
     ],
+    strip_import_prefix = "/proto",
     visibility = ["//visibility:public"],
     deps = [
+        "//infra:infra_proto",
         "@com_google_protobuf//:empty_proto",
         "@com_google_protobuf//:timestamp_proto",
         "@com_google_protobuf//:wrappers_proto",
     ],
-    strip_import_prefix = "/proto",
 )
