@@ -1,0 +1,21 @@
+load("@com_github_jmhodges_bazel_gomock//:gomock.bzl", "gomock")
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "client.go",
+    ],
+    importpath = "github.com/linzhp/bazel_examples/gomock",
+    visibility = ["//visibility:public"],
+)
+
+# gazelle:exclude mocks.go
+gomock(
+    name = "mocks",
+    out = "mocks.go",
+    source = "client.go",
+    interfaces = ["sshClient"],
+    library = ":go_default_library",
+    package = "gomock",
+)
