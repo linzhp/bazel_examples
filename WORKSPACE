@@ -4,7 +4,7 @@ http_archive(
     urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.18.5/rules_go-0.18.5.tar.gz"],
     sha256 = "a82a352bffae6bee4e95f68a8d80a70e87f42c4741e6a448bec11998fcc82329",
 )
-gazelle_revision = "63ddd72aa315d020456f1a96bc6fcca9405810cb"
+gazelle_revision = "39b19ce92c43c9915d69db5fa68b1772434df2e9"
 http_archive(
     name = "bazel_gazelle",
     urls = ["https://github.com/bazelbuild/bazel-gazelle/archive/{}.zip".format(gazelle_revision)],
@@ -34,7 +34,7 @@ go_repository(
     build_extra_args = ["-exclude=vendor"],
     build_file_generation = "on",
     build_file_proto_mode = "disable",
-    commit = "9fa652df1129bef0e734c9cf9bf6dbae9ef3b9fa",
+    commit = "d74b93584564161b2de771089ee697f07d8bd5b5",
     importpath = "github.com/golang/mock",
 )
 
