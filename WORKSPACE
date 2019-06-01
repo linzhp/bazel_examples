@@ -34,8 +34,10 @@ go_repository(
     build_extra_args = ["-exclude=vendor"],
     build_file_generation = "on",
     build_file_proto_mode = "disable",
-    commit = "d74b93584564161b2de771089ee697f07d8bd5b5",
+    commit = "278f47fd81a9189f92f6cdcced68dc394a9090ba",
     importpath = "github.com/golang/mock",
+    remote = "git@github.com:linzhp/mock.git",
+    vcs = "git",
 )
 
 go_mock_revision = "e4a4d7dce76eedebd85d1bac72a9c02615c80eff"
