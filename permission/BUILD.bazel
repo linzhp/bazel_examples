@@ -12,3 +12,8 @@ go_test(
     srcs = ["file_test.go"],
     embed = [":go_default_library"],
 )
+
+sh_test(
+    name = "read_only_test",
+    srcs = ["file_test.sh"],
+)
