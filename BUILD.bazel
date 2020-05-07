@@ -1,5 +1,16 @@
 # gazelle:prefix github.com/linzhp/bazel_examples
 
 load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@io_bazel_rules_go//go:def.bzl", "nogo")
 
 gazelle(name = "gazelle")
+
+nogo(
+    name = "default_nogo",
+    # enabling atomic, bools, buildtag, nilfunc, and printf analyzers
+    vet = True,
+    visibility = ["//visibility:public"],
+    deps = [
+        "@org_golang_x_tools//go/analysis/passes/tests:go_tool_library",
+    ],
+)
