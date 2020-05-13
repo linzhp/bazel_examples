@@ -1,22 +1,22 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 
-rules_go_version = "280a1ed6be5a3c085aeb4ca72564b066cba64e62"
+rules_go_version = "v0.23.0"
 
 http_archive(
     name = "io_bazel_rules_go",
-    strip_prefix = "rules_go-{}".format(rules_go_version),
+    sha256 = "6a68e269802911fa419abb940c850734086869d7fe9bc8e12aaf60a09641c818",
     urls = [
-        "https://github.com/bazelbuild/rules_go/archive/{}.zip".format(rules_go_version),
+        "https://github.com/bazelbuild/rules_go/releases/download/{0}/rules_go-{0}.tar.gz".format(rules_go_version),
     ],
 )
 
-gazelle_revision = "7e93b118efcdfe63f43057a88711762e0b5d7267"
+gazelle_revision = "v0.21.0"
 
 http_archive(
     name = "bazel_gazelle",
-    strip_prefix = "bazel-gazelle-{}".format(gazelle_revision),
+    sha256 = "bfd86b3cbe855d6c16c6fce60d76bd51f5c8dbc9cfcaef7a2bb5c1aafd0710e8",
     urls = [
-        "https://github.com/bazelbuild/bazel-gazelle/archive/{}.zip".format(gazelle_revision),
+        "https://github.com/bazelbuild/bazel-gazelle/releases/download/{0}/bazel-gazelle-{0}.tar.gz".format(gazelle_revision),
     ],
 )
 
