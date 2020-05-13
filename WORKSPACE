@@ -1,6 +1,6 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 
-rules_go_version = "745de507d7f7e8837eba01dd5ff9d4ef7edf31c7"
+rules_go_version = "280a1ed6be5a3c085aeb4ca72564b066cba64e62"
 
 http_archive(
     name = "io_bazel_rules_go",
@@ -69,3 +69,14 @@ go_repository(
     sum = "h1:Xim2mBRFdXzXmKRO8DJg/FJtn/8Fj9NOEpO6+WuMPmk=",
     version = "v0.0.0-20181123154057-e78b021dcbb5",
 )
+
+go_repository(
+    name = "com_github_chai2010_webp",
+    build_extra_args = ["-exclude=vendor"],
+    build_file_generation = "on",
+    build_file_proto_mode = "disable",
+    importpath = "github.com/chai2010/webp",
+    sum = "h1:4Ei0/BRroMF9FaXDG2e4OxwFcuW2vcXd+A6tyqTJUQQ=",
+    version = "v1.1.0",
+)
+
