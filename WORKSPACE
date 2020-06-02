@@ -1,20 +1,20 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 
-rules_go_version = "v0.23.0"
+rules_go_version = "v0.23.2"
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "6a68e269802911fa419abb940c850734086869d7fe9bc8e12aaf60a09641c818",
+    # sha256 = "6a68e269802911fa419abb940c850734086869d7fe9bc8e12aaf60a09641c818",
     urls = [
         "https://github.com/bazelbuild/rules_go/releases/download/{0}/rules_go-{0}.tar.gz".format(rules_go_version),
     ],
 )
 
-gazelle_revision = "v0.21.0"
+gazelle_revision = "v0.21.1"
 
 http_archive(
     name = "bazel_gazelle",
-    sha256 = "bfd86b3cbe855d6c16c6fce60d76bd51f5c8dbc9cfcaef7a2bb5c1aafd0710e8",
+    # sha256 = "bfd86b3cbe855d6c16c6fce60d76bd51f5c8dbc9cfcaef7a2bb5c1aafd0710e8",
     urls = [
         "https://github.com/bazelbuild/bazel-gazelle/releases/download/{0}/bazel-gazelle-{0}.tar.gz".format(gazelle_revision),
     ],
@@ -50,17 +50,20 @@ go_repository(
     build_file_generation = "on",
     build_file_proto_mode = "disable",
     importpath = "github.com/golang/mock",
-    sum = "h1:Rd1kQnQu0Hq3qvJppYSG0HtP+f5LPPUiDswTLiEegLg=",
-    version = "v1.4.0",
+    sum = "h1:SP2mbHeyu1pCO5i8Xv6e3xgoKKMEhm6DJNVnflRaim0=",
+    version = "v1.4.4-0.20200519145626-92f53b0a566c",
 )
 
-go_mock_version = "1.2"
+go_mock_version = "6f3bc610237ab39f288738d338a2d3ef6bf68bba"
 
 http_archive(
     name = "com_github_jmhodges_bazel_gomock",
-    sha256 = "850394d47c5331898728c02be8eb60e7ac580f09559fcb87c790f6db12dd3338",
+    patch_args = ["-p1"],
+    patches = [
+        "//patches:bazel-gomock-gopath.patch",  # https://github.com/jmhodges/bazel_gomock/pull/44
+    ],
     strip_prefix = "bazel_gomock-{}".format(go_mock_version),
-    urls = ["https://github.com/jmhodges/bazel_gomock/archive/v{}.zip".format(go_mock_version)],
+    urls = ["https://github.com/jmhodges/bazel_gomock/archive/{}.zip".format(go_mock_version)],
 )
 
 go_repository(
@@ -80,3 +83,12 @@ go_repository(
     version = "v1.1.0",
 )
 
+go_repository(
+    name = "org_golang_x_mod",
+    build_extra_args = ["-exclude=vendor"],
+    build_file_generation = "on",
+    build_file_proto_mode = "disable",
+    importpath = "golang.org/x/mod",
+    sum = "h1:RM4zey1++hCTbCVQfnWeKs9/IEsaBLA8vTkd0WVtmH4=",
+    version = "v0.3.0",
+)

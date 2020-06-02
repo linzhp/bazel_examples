@@ -6,7 +6,10 @@ go_library(
     srcs = ["client.go"],
     importpath = "github.com/linzhp/bazel_examples/gomock",
     visibility = ["//visibility:public"],
-    deps = ["@com_github_mattn_go_sqlite3//:go_default_library"],
+    deps = [
+        "@com_github_mattn_go_sqlite3//:go_default_library",
+        "@bazel_gazelle//cmd/gazelle:go_default_library",
+    ],
 )
 
 # gazelle:exclude mocks.go
