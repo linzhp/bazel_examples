@@ -7,8 +7,8 @@ go_library(
     importpath = "github.com/linzhp/bazel_examples/gomock",
     visibility = ["//visibility:public"],
     deps = [
-        "@com_github_mattn_go_sqlite3//:go_default_library",
         "@bazel_gazelle//cmd/gazelle:go_default_library",
+        "@com_github_mattn_go_sqlite3//:go_default_library",
     ],
 )
 
