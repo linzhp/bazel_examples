@@ -20,11 +20,11 @@ http_archive(
     ],
 )
 
-load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
+load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 
 go_rules_dependencies()
 
-go_register_toolchains(nogo="@//:default_nogo")
+go_register_toolchains(nogo = "@//:default_nogo")
 
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 
@@ -32,9 +32,9 @@ gazelle_dependencies()
 
 http_file(
     name = "dep",
-    urls = ["https://github.com/golang/dep/releases/download/v0.5.0/dep-darwin-amd64"],
-    sha256 = "1a7bdb0d6c31ecba8b3fd213a1170adf707657123e89dff234871af9e0498be2",
     executable = True,
+    sha256 = "1a7bdb0d6c31ecba8b3fd213a1170adf707657123e89dff234871af9e0498be2",
+    urls = ["https://github.com/golang/dep/releases/download/v0.5.0/dep-darwin-amd64"],
 )
 
 go_repository(
@@ -92,3 +92,18 @@ go_repository(
     sum = "h1:RM4zey1++hCTbCVQfnWeKs9/IEsaBLA8vTkd0WVtmH4=",
     version = "v0.3.0",
 )
+
+go_repository(
+    name = "com_github_google_go_jsonnet",
+    importpath = "github.com/google/go-jsonnet",
+    patch_args = ["-p1"],
+    patches = [
+        "//patches:jsonnet-cpp.patch",  # https://github.com/google/go-jsonnet/pull/452
+    ],
+    sum = "h1:Nb4EEOp+rdeGGyB1rQ5eisgSAqrTnhf9ip+X6lzZbY0=",
+    version = "v0.16.0",
+)
+
+load("@com_github_google_go_jsonnet//bazel:repositories.bzl", "jsonnet_go_repositories")
+
+jsonnet_go_repositories()
