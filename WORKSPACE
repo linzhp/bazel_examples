@@ -1,10 +1,10 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 
-rules_go_version = "v0.24.0"
+rules_go_version = "v0.23.10"
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "08369b54a7cbe9348eea474e36c9bbb19d47101e8860cec75cbf1ccd4f749281",
+    sha256 = "d9a9d51999acc7d60a5b58e20b391b907b3eaa9c670c1faa07c5e4a93bd8da36",
     urls = [
         "https://github.com/bazelbuild/rules_go/releases/download/{0}/rules_go-{0}.tar.gz".format(rules_go_version),
     ],
@@ -107,3 +107,14 @@ go_repository(
 load("@com_github_google_go_jsonnet//bazel:repositories.bzl", "jsonnet_go_repositories")
 
 jsonnet_go_repositories()
+
+http_archive(
+    name = "icu4c",
+    strip_prefix = "icu",
+    sha256 = "627d5d8478e6d96fc8c90fed4851239079a561a6a8b9e48b0892f24e82d31d6c",
+    urls = [
+        "https://github.com/unicode-org/icu/releases/download/release-64-2/icu4c-64_2-src.tgz",
+    ],
+    build_file = "//third_party/icu:BUILD.system",
+)
+

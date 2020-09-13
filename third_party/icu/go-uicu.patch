@@ -1,0 +1,42 @@
+diff --git a/datetime/BUILD.bazel b/datetime/BUILD.bazel
+index aea725a..69953ab 100644
+--- a/datetime/BUILD.bazel
++++ b/datetime/BUILD.bazel
+@@ -12,8 +12,7 @@ go_library(
+         "util.go",
+     ],
+     cgo = True,
+-    clinkopts = ["-L/usr/local/opt/icu4c/lib -licui18n -licuuc -licudata"],
+-    copts = ["-I/usr/local/opt/icu4c/include"],
++    cdeps = ["@icu4c//:icu4c"],
+     importpath = "code.uber.internal/communications/go-uicu.git/datetime",
+     visibility = ["//visibility:public"],
+     deps = [
+diff --git a/locale/BUILD.bazel b/locale/BUILD.bazel
+index 4ca8d5f..7619920 100644
+--- a/locale/BUILD.bazel
++++ b/locale/BUILD.bazel
+@@ -8,8 +8,7 @@ go_library(
+         "locale.go",
+     ],
+     cgo = True,
+-    clinkopts = ["-L/usr/local/opt/icu4c/lib -licui18n -licuuc -licudata"],
+-    copts = ["-I/usr/local/opt/icu4c/include"],
++    cdeps = ["@icu4c//:icu4c"],
+     importpath = "code.uber.internal/communications/go-uicu.git/locale",
+     visibility = ["//visibility:public"],
+     deps = [
+diff --git a/numeric/BUILD.bazel b/numeric/BUILD.bazel
+index ddaff3f..017dd8e 100644
+--- a/numeric/BUILD.bazel
++++ b/numeric/BUILD.bazel
+@@ -11,8 +11,7 @@ go_library(
+         "number_formatter.go",
+     ],
+     cgo = True,
+-    clinkopts = ["-L/usr/local/opt/icu4c/lib -licui18n -licuuc -licudata"],
+-    copts = ["-I/usr/local/opt/icu4c/include"],
++    cdeps = ["@icu4c//:icu4c"],
+     importpath = "code.uber.internal/communications/go-uicu.git/numeric",
+     visibility = ["//visibility:public"],
+     deps = [

@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["bar.go"],
+    importpath = "github.com/linzhp/bazel_examples/recompile/bar",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//recompile:go_default_library",
+        "//recompile/baz:go_default_library",
+    ],
+)
