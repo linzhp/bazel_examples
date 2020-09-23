@@ -10,4 +10,7 @@ nogo(
     # enabling atomic, bools, buildtag, nilfunc, and printf analyzers
     vet = True,
     visibility = ["//visibility:public"],
+    deps = [
+        "@org_golang_x_tools//go/analysis/passes/composite:go_tool_library",
+    ],
 )
