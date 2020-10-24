@@ -1,10 +1,10 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 
-rules_go_version = "v0.24.3"
+rules_go_version = "v0.24.4"
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "b725e6497741d7fc2d55fcc29a276627d10e43fa5d0bb692692890ae30d98d00",
+    sha256 = "ac03931e56c3b229c145f1a8b2a2ad3e8d8f1af57e43ef28a26123362a1e3c7e",
     urls = [
         "https://github.com/bazelbuild/rules_go/releases/download/{0}/rules_go-{0}.tar.gz".format(rules_go_version),
     ],
@@ -40,8 +40,8 @@ http_file(
 go_repository(
     name = "com_github_mattn_go_sqlite3",
     importpath = "github.com/mattn/go-sqlite3",
-    sum = "h1:gXHsfypPkaMZrKbD5209QV9jbUTJKjyR5WD3HYQSd+U=",
-    version = "v2.0.3+incompatible",
+    sum = "h1:LDdKkqtYlom37fkvqs8rMPFKAMe8+SgjbwZ6ex1/A/Q=",
+    version = "v1.11.0",
 )
 
 go_repository(
